@@ -7,8 +7,16 @@ runtime: shiny
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 ```
+
+```{r}
+renderImage({
+    list(src = "drake-equation-1600px.jpg",
+         width = 1200)
+  })
+```
+*Image from [SETI](https://www.seti.org/drake-equation-index) website*
 
 
 ## The Drake Equation
@@ -63,6 +71,7 @@ renderText({
 })
 
 ```
+
 
 
 

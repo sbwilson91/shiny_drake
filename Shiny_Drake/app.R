@@ -43,6 +43,7 @@ ui <- fluidPage(
       # Show a plot of the generated distribution
       mainPanel(
         plotOutput("SETI"),
+        textOutput("SETIref"),
           textOutput("drake")
       )
    )
@@ -54,6 +55,9 @@ server <- function(input, output) {
     list(src = "../drake-equation-1600px.jpg",
          width = 1200,
          height = 400)
+  })
+  output$SETIref <- renderText({
+    expr = paste0("Image from SETI website: https://www.seti.org/drake-equation-index")
   })
    
    output$drake <- renderText({
