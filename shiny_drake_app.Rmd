@@ -10,15 +10,8 @@ runtime: shiny
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-This R Markdown document is made interactive using Shiny. Unlike the more traditional workflow of creating static reports, you can now create documents that allow your readers to change the assumptions underlying your analysis and see the results immediately. 
 
-To learn more, see [Interactive Documents](http://rmarkdown.rstudio.com/authoring_shiny.html).
-
-## Inputs and Outputs
-
-You can embed Shiny inputs and outputs in your document. Outputs are automatically updated whenever inputs change.  This demonstrates how a standard R plot can be made interactive by wrapping it in the Shiny `renderPlot` function. The `selectInput` and `sliderInput` functions create the input widgets used to drive the plot.
-
-## Drake Equation
+## The Drake Equation
 
 The Drake Equation is a statement that stimulates intellectual curiosity about the universe around us, for helping us to understand that life as we know it is the end product of a natural, cosmic evolution, and for helping us realize how much we are a part of that universe.  
 
@@ -33,40 +26,15 @@ f(i) = fraction of planets with life where life develops intelligence
 f(c) = fraction of intellegent civilisations that develop communication  
 L = mean length of time that civilisations can communicate  
 
-Latest calculations from NASA and the European Space Agency indicate that the current rate of star formation in our galaxy is about 0.68–1.45 M☉ of material per year.[19][20] To get the number of stars per year, this must account for the initial mass function (IMF) for stars, where the average new star mass is about 0.5 M☉.[21] This gives a star formation rate of about 1.5–3 stars per year.  
+From Wikipedia:  
+Criticism of the Drake equation follows mostly from the observation that several terms in the equation are largely or entirely based on conjecture. Star formation rates are well-known, and the incidence of planets has a sound theoretical and observational basis, but the other terms in the equation become very speculative. The uncertainties revolve around our understanding of the evolution of life, intelligence, and civilization, not physics. No statistical estimates are possible for some of the parameters, where only one example is known. The net result is that the equation cannot be used to draw firm conclusions of any kind, and the resulting margin of error is huge, far beyond what some consider acceptable or meaningful.
 
-Fraction of those stars that have planets, fp
-Recent analysis of microlensing surveys has found that fp may approach 1—that is, stars are orbited by planets as a rule, rather than the exception; and that there are one or more bound planets per Milky Way star.
-
-The consensus at the Green Bank meeting was that n(e) had a minimum value between 3 and 5. Dutch science journalist Govert Schilling has opined that this is optimistic.  
-
-Fraction of the above that develops intelligent life, fi
-This value remains particularly controversial. Those who favor a low value, such as the biologist Ernst Mayr, point out that of the billions of species that have existed on Earth, only one has become intelligent and from this, infer a tiny value for fi.[38] Likewise, the Rare Earth hypothesis, notwithstanding their low value for ne above, also think a low value for fi dominates the analysis.[39] Those who favor higher values note the generally increasing complexity of life over time, concluding that the appearance of intelligence is almost inevitable,[40][41] implying an fi approaching 1. Skeptics point out that the large spread of values in this factor and others make all estimates unreliable. (See Criticism).
-
-In addition, while it appears that life developed soon after the formation of Earth, the Cambrian explosion, in which a large variety of multicellular life forms came into being, occurred a considerable amount of time after the formation of Earth, which suggests the possibility that special conditions were necessary. Some scenarios such as the snowball Earth or research into the extinction events have raised the possibility that life on Earth is relatively fragile. Research on any past life on Mars is relevant since a discovery that life did form on Mars but ceased to exist might raise our estimate of fl but would indicate that in half the known cases, intelligent life did not develop.
-
-Estimates of fi have been affected by discoveries that the Solar System's orbit is circular in the galaxy, at such a distance that it remains out of the spiral arms for tens of millions of years (evading radiation from novae). Also, Earth's large moon may aid the evolution of life by stabilizing the planet's axis of rotation.
-
-There has been quantitative work to begin to define {\displaystyle f_{\mathrm {l} }\cdot f_{\mathrm {i} }}{\displaystyle f_{\mathrm {l} }\cdot f_{\mathrm {i} }} . One example is a Bayesian analysis published in 2020. In the conclusion, the author cautions that this study applies to Earth's conditions. In Bayesian terms, the study favors the formation of intelligence on a planet with identical conditions to Earth but does not do so with high confidence. [42] [43]  
-
-Fraction of the above revealing their existence via signal release into space, fc
-For deliberate communication, the one example we have (the Earth) does not do much explicit communication, though there are some efforts covering only a tiny fraction of the stars that might look for our presence. (See Arecibo message, for example). There is considerable speculation why an extraterrestrial civilization might exist but choose not to communicate. However, deliberate communication is not required, and calculations indicate that current or near-future Earth-level technology might well be detectable to civilizations not too much more advanced than our own.[44] By this standard, the Earth is a communicating civilization.
-
-Another question is what percentage of civilizations in the galaxy are close enough for us to detect, assuming that they send out signals. For example, existing Earth radio telescopes could only detect Earth radio transmissions from roughly a light year away.
-
-L:  
-David Grinspoon has argued that once a civilization has developed enough, it might overcome all threats to its survival. It will then last for an indefinite period of time, making the value for L potentially billions of years. If this is the case, then he proposes that the Milky Way galaxy may have been steadily accumulating advanced civilizations since it formed.[47] He proposes that the last factor L be replaced with fIC · T, where fIC is the fraction of communicating civilizations become "immortal" (in the sense that they simply do not die out), and T representing the length of time during which this process has been going on. This has the advantage that T would be a relatively easy to discover number, as it would simply be some fraction of the age of the universe.
-
-It has also been hypothesized that once a civilization has learned of a more advanced one, its longevity could increase because it can learn from the experiences of the other.[48]
-
-The astronomer Carl Sagan speculated that all of the terms, except for the lifetime of a civilization, are relatively high and the determining factor in whether there are large or small numbers of civilizations in the universe is the civilization lifetime, or in other words, the ability of technological civilizations to avoid self-destruction. In Sagan's case, the Drake equation was a strong motivating factor for his interest in environmental issues and his efforts to warn against the dangers of nuclear warfare.
-
-An intelligent civilization might not be organic, as some have suggested that computers may replace humanity.[49]
+One reply to such criticisms is that even though the Drake equation currently involves speculation about unmeasured parameters, it was intended as a way to stimulate dialogue on these topics. Then the focus becomes how to proceed experimentally. Indeed, Drake originally formulated the equation **merely as an agenda for discussion** at the Green Bank conference.
 
 ```{r eruptions, echo=FALSE}
 inputPanel(
   sliderInput("Rstar", label = "Mean rate of star formation in our galaxy:",
-              min = 1, max = 5, value = 1.5, step = 0.1),
+              min = 1, max = 5, value = 3, step = 0.5),
   
   sliderInput("fp", label = "Fraction of stars that have planets:",
               min = 0.1, max = 1, value = 1, step = 0.01),
@@ -84,26 +52,19 @@ inputPanel(
               min = 0.01, max = 1, value = 0.1, step = 0.01),
   
   sliderInput("L", label = "Length of time civilisation remains communicating (thousand years): ", 
-              min = 1, max = 1000000, value = 1, step = 1)
+              min = 1, max = 1000, value = 10, step = 1)
 )
 
-renderPrint(expr, env = parent.frame(), quoted = FALSE,
-  width = getOption("width"), outputArgs = list())
+
+renderText({
+     paste0("These parameters estimate that there are ", 
+                   round(input$Rstar * input$fp * input$ne * input$fl * input$fi * input$fc * input$L),
+                   " civilisations that we could communicate with")
+})
 
 ```
 
-## Embedded Application
 
-It's also possible to embed an entire Shiny application within an R Markdown document using the `shinyAppDir` function. This example embeds a Shiny application located in another directory:
-
-```{r tabsets, echo=FALSE}
-shinyAppDir(
-  system.file("examples/06_tabsets", package = "shiny"),
-  options = list(
-    width = "100%", height = 550
-  )
-)
-```
 
 
 

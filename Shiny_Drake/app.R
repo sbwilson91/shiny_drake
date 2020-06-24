@@ -42,6 +42,7 @@ ui <- fluidPage(
       
       # Show a plot of the generated distribution
       mainPanel(
+        plotOutput("SETI"),
           textOutput("drake")
       )
    )
@@ -49,6 +50,11 @@ ui <- fluidPage(
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
+  output$SETI <- renderImage({
+    list(src = "../drake-equation-1600px.jpg",
+         width = 1200,
+         height = 400)
+  })
    
    output$drake <- renderText({
      expr = paste0("These parameters estimate that there are ", 
