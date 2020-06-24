@@ -18,13 +18,23 @@ renderImage({
 ```
 *Image from [SETI](https://www.seti.org/drake-equation-index) website*
 
+## Are We Alone?
 
-## The Drake Equation
+I'm sure it's a question that you've thought about at some point. Maybe you were looking up at the night sky, seeing twinkling lights showing the planets, stars and galaxies that surround us, or reading books, watching movies or TV shows with outer-space action, extra-terrestrial species, travelling through different planets around stars other than the Sun. I myself avidly remember seeing the reboot of Star Wars in the late 90s and falling in love with those movies, at which point I was exposed to the concept that we are one planet in a universe of stars, planets and moons and that maybe, other creatures are out there somewhere in the wide advances of space.
 
+
+## What is The Drake Equation?
+
+Studying science at university, I took an astrobiology unit which introduced me to "The Drake Equation". Lifted verbatim from the definition I googled:  
 The Drake Equation is a statement that stimulates intellectual curiosity about the universe around us, for helping us to understand that life as we know it is the end product of a natural, cosmic evolution, and for helping us realize how much we are a part of that universe.  
+Essentially, Frank Drake put forward a set of parameters that he thought could be used to get an idea of the number of civilisations we could expect to arise in the universe. He originally put the equation forward as a talking point, however since that original meeting the equation has been scrutinised, criticised and modified to try and shed light on that simple yet complex question: Are we alone?  
 
-N = R* x f(p) x n(e) x f(l) x f(i) x f(c) x L
+## The original equation  
 
+Set out by Drake, the original equation was:  
+
+N = R* x f(p) x n(e) x f(l) x f(i) x f(c) x L  
+Where:  
 N = Number of civilisations with which humans could communicate  
 R* = mean rate of star formation in our galaxy
 f(p) = fractions of stars that have planets  
@@ -34,10 +44,11 @@ f(i) = fraction of planets with life where life develops intelligence
 f(c) = fraction of intellegent civilisations that develop communication  
 L = mean length of time that civilisations can communicate  
 
-From Wikipedia:  
-Criticism of the Drake equation follows mostly from the observation that several terms in the equation are largely or entirely based on conjecture. Star formation rates are well-known, and the incidence of planets has a sound theoretical and observational basis, but the other terms in the equation become very speculative. The uncertainties revolve around our understanding of the evolution of life, intelligence, and civilization, not physics. No statistical estimates are possible for some of the parameters, where only one example is known. The net result is that the equation cannot be used to draw firm conclusions of any kind, and the resulting margin of error is huge, far beyond what some consider acceptable or meaningful.
+Summarising from [wikipedia](https://en.wikipedia.org/wiki/Drake_equation), the first couple of terms are fairly well understood from direct measurements. Star formation rates are seen to be between 1.5 and 3 per year, and we are improving our understanding of planet incidence arounds stars. Originally the figure was thought to be likely between 3-5, however other work has shown that perhaps 10% of star systems are hospitible to life. The next variable of planet/moon systems that could support life per star is another variable that we are learning about with the capacity to identify exoplanets improving. From this point, we are really making guestimates of the fraction of life supporting, intelligence and communicable species that will arise from these planets. Finally the length of time that a civilisation could communicate with us is important as we would need to have an overlapping period of time that this can occur.  
 
-One reply to such criticisms is that even though the Drake equation currently involves speculation about unmeasured parameters, it was intended as a way to stimulate dialogue on these topics. Then the focus becomes how to proceed experimentally. Indeed, Drake originally formulated the equation **merely as an agenda for discussion** at the Green Bank conference.
+## So What's the Number?
+
+With these parameters, there is a large range of potential outcomes from this equation. You can play with the parameters at each variable and see how this changes the output. Ranges are calculated to be within reasonably understood ranges for each of these. 
 
 ```{r eruptions, echo=FALSE}
 inputPanel(
@@ -51,7 +62,7 @@ inputPanel(
               min = 0.2, max = 7, value = 1, step = 0.2),
   
   sliderInput("fl", label = "Fraction of the above that develop life:",
-              min = 0.1, max = 7, value = 1, step = 0.2),
+              min = 0.1, max = 1, value = 1, step = 0.2),
   
   sliderInput("fi", label = "Fraction of the above that develops intelligent life:",
               min = 0.01, max = 1, value = 0.5, step = 0.01),

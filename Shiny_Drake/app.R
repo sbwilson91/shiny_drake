@@ -1,11 +1,4 @@
-#
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
+
 
 library(shiny)
 
@@ -57,7 +50,10 @@ server <- function(input, output) {
          height = 400)
   })
   output$SETIref <- renderText({
-    expr = paste0("Image from SETI website: https://www.seti.org/drake-equation-index")
+    expr = print0("Image from SETI website: https://www.seti.org/drake-equation-index \n
+                  The Drake Equation is a statement that stimulates intellectual curiosity about the universe around us,\n
+                  for helping us to understand that life as we know it is the end product of a natural, cosmic evolution, \n
+                  and for helping us realize how much we are a part of that universe.  ")
   })
    
    output$drake <- renderText({
